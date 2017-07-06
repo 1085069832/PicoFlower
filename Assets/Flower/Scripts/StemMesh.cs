@@ -24,9 +24,11 @@ public class StemMesh : MonoBehaviour
     private float stump_width_ = 1.0f;
     private bool is_diminishing_ = false;
     FlowerBloom flowerBloom;
-
+    FlowerCollider flowerCollider;
     void Start()
     {
+        flowerCollider = GameObject.Find("FlowerCollider").GetComponent<FlowerCollider>();
+
         flowerBloom = GameObject.Find("Flower").GetComponent<FlowerBloom>();
         broken = new bool[segments.Length];
         for (int i = 0; i < broken.Length; ++i)
@@ -41,8 +43,8 @@ public class StemMesh : MonoBehaviour
 
     void Update()
     {
-        //if (flowerBloom && flowerBloom.phase_ != 1)
-        //{
+        if ((flowerBloom && flowerBloom.phase_ != 1) || flowerCollider && flowerCollider.isCollider)
+        {
             print("stem");
             UpdateMesh();
             MeshFilter filter = GetComponent<MeshFilter>();
@@ -51,7 +53,7 @@ public class StemMesh : MonoBehaviour
             filter.mesh.vertices = vertices_;
             filter.mesh.RecalculateBounds();
             filter.mesh.RecalculateNormals();
-        //}
+        }
     }
 
     public bool IsBroken()

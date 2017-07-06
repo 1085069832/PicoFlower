@@ -7,14 +7,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class ResetCollisionsOnBreak : MonoBehaviour {
+public class ResetCollisionsOnBreak : MonoBehaviour
+{
 
-  public Collider[] collidersToReset;
-  
-  void OnJointBreak() {
-    for (int i = 0; i < collidersToReset.Length; ++i) {
-      collidersToReset[i].GetComponent<Collider>().enabled = false;
-      collidersToReset[i].GetComponent<Collider>().enabled = true;
+    public Collider[] collidersToReset;
+
+    void OnJointBreak()
+    {
+        for (int i = 0; i < collidersToReset.Length; ++i)
+        {
+            collidersToReset[i].GetComponent<Collider>().enabled = false;
+            collidersToReset[i].GetComponent<Collider>().enabled = true;
+        }
     }
-  }
 }
