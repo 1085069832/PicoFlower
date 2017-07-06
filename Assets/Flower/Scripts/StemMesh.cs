@@ -27,9 +27,9 @@ public class StemMesh : MonoBehaviour
     FlowerCollider flowerCollider;
     void Start()
     {
-        flowerCollider = GameObject.Find("FlowerCollider").GetComponent<FlowerCollider>();
+        //flowerCollider = GameObject.Find("FlowerCollider").GetComponent<FlowerCollider>();
 
-        flowerBloom = GameObject.Find("Flower").GetComponent<FlowerBloom>();
+        //flowerBloom = GameObject.Find("Flower").GetComponent<FlowerBloom>();
         broken = new bool[segments.Length];
         for (int i = 0; i < broken.Length; ++i)
             broken[i] = false;
@@ -43,8 +43,8 @@ public class StemMesh : MonoBehaviour
 
     void Update()
     {
-        if ((flowerBloom && flowerBloom.phase_ != 1) || flowerCollider && flowerCollider.isCollider)
-        {
+        //if ((flowerBloom && flowerBloom.phase_ != 1) || flowerCollider && flowerCollider.isCollider)
+        //{
             print("stem");
             UpdateMesh();
             MeshFilter filter = GetComponent<MeshFilter>();
@@ -53,7 +53,7 @@ public class StemMesh : MonoBehaviour
             filter.mesh.vertices = vertices_;
             filter.mesh.RecalculateBounds();
             filter.mesh.RecalculateNormals();
-        }
+       // }
     }
 
     public bool IsBroken()
