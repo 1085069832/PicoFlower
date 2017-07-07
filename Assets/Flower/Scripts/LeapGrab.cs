@@ -10,5 +10,4 @@ public class LeapGrab : InteractionBehaviour
         base.OnGraspBegin();
         GetComponent<GrabbableObject>().OnGrab();
     }
-
 }
