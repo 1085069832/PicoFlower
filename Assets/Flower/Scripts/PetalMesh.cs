@@ -37,7 +37,6 @@ public class PetalMesh : MonoBehaviour
     {
         //if (flowerBloom && flowerBloom.phase_ != 1 || flowerCollider && flowerCollider.isCollider)
         //{
-            print("petal");
             UpdateMesh();
             front_.MarkDynamic();
             front_.vertices = vertices_;
