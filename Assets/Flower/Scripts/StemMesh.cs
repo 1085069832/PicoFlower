@@ -24,7 +24,7 @@ public class StemMesh : MonoBehaviour
     private float stump_width_ = 1.0f;
     private bool is_diminishing_ = false;
     FlowerBloom flowerBloom;
-    FlowerCollider flowerCollider;
+   // FlowerCollider flowerCollider;
     void Start()
     {
         //flowerCollider = GameObject.Find("FlowerCollider").GetComponent<FlowerCollider>();

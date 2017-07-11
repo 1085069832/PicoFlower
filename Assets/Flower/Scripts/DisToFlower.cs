@@ -50,13 +50,11 @@ public class DisToFlower : MonoBehaviour
     /// </summary>
     public void OnClickToLeftRotate()
     {
-        print("旋转");
         picoCamera.transform.RotateAround(flowerCenter.transform.position, picoCamera.transform.up, rotateSpeed * Time.deltaTime);
     }
 
     public void OnClickToRightRotate()
     {
-        print("旋转");
         picoCamera.transform.RotateAround(flowerCenter.transform.position, picoCamera.transform.up, -rotateSpeed * Time.deltaTime);
     }
 }

@@ -24,19 +24,19 @@ public class PetalMesh : MonoBehaviour
     private Mesh back_;
 
     FlowerBloom flowerBloom;
-    FlowerCollider flowerCollider;
+    MeshController meshController;
     void Start()
     {
-        //flowerCollider = GameObject.Find("FlowerCollider").GetComponent<FlowerCollider>();
-        //flowerBloom = GameObject.Find("Flower").GetComponent<FlowerBloom>();
+        meshController = GameObject.Find("Collider").GetComponent<MeshController>();
+        flowerBloom = GameObject.Find("Flower").GetComponent<FlowerBloom>();
         GetComponent<MeshFilter>().mesh = new Mesh();
         InitMesh();
     }
 
     void Update()
     {
-        //if (flowerBloom && flowerBloom.phase_ != 1 || flowerCollider && flowerCollider.isCollider)
-        //{
+        if (flowerBloom && flowerBloom.phase_ != 1 || meshController.isMesh)
+        {
             UpdateMesh();
             front_.MarkDynamic();
             front_.vertices = vertices_;
@@ -53,7 +53,7 @@ public class PetalMesh : MonoBehaviour
 
             filter.mesh.CombineMeshes(combine, true, false);
             filter.mesh.RecalculateBounds();
-        //}
+        }
     }
 
     private void InitMesh()
