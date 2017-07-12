@@ -10,7 +10,6 @@ public class HandGrabController : MonoBehaviour
     [HideInInspector]
     public bool isGrab;//是否抓取
 
-
     // Update is called once per frame
     void Update()
     {

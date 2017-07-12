@@ -36,6 +36,8 @@ public class ObjectGrab : MonoBehaviour
                 transform.position = handGrabController.thumbTip;
                 fj = gameObject.AddComponent<FixedJoint>();
                 fj.connectedBody = thumbTip.gameObject.GetComponent<Rigidbody>();
+                GameObject.Find("GameManager").GetComponent<CreateFlower>().InstanceFlower();
+
             }
         }
         else
