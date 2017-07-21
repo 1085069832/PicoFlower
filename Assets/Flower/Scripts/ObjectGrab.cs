@@ -12,6 +12,8 @@ public class ObjectGrab : MonoBehaviour
     HandGrabController handGrabController;
     Transform thumbTip;
     FixedJoint fj;
+    bool isTrigger;
+    Transform handCenter;
 
     private void Awake()
     {
@@ -35,23 +37,29 @@ public class ObjectGrab : MonoBehaviour
                 grabbableObject.OnGrab();
                 transform.position = handGrabController.thumbTip;
                 fj = gameObject.AddComponent<FixedJoint>();
-                fj.connectedBody = thumbTip.gameObject.GetComponent<Rigidbody>();
+                fj.connectedBody = handCenter.gameObject.GetComponent<Rigidbody>();
                 GameObject.Find("GameManager").GetComponent<CreateFlower>().InstanceFlower();
 
             }
         }
-        else
+
+        if (isTrigger && !handGrabController.isGrab)
         {
             //断开
             if (fj)
+            {
                 Destroy(fj);
+                isTrigger = false;
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         RigidFinger rf = other.GetComponentInParent<RigidFinger>();
+        handCenter = other.GetComponentInParent<RigidHand>().transform.Find("palm").Find("Sphere");
         handGrabController = other.GetComponentInParent<RigidHand>().GetComponentInChildren<HandGrabController>();
+        isTrigger = true;
         if (rf && rf.fingerType == Leap.Finger.FingerType.TYPE_THUMB)
         {
             //是否是拇指

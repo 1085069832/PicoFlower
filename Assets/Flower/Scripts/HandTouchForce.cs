@@ -8,6 +8,6 @@ public class HandTouchForce : MonoBehaviour
 
     public void AddForceForHand(Vector3 handVelocity)
     {
-        GetComponent<Rigidbody>().AddForce(handVelocity / (GetComponent<Rigidbody>().mass * force), ForceMode.Force);
+        GetComponent<Rigidbody>().AddForce(handVelocity * GetComponent<Rigidbody>().mass * force, ForceMode.Force);
     }
 }
