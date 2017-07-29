@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HandTouchForce : MonoBehaviour
 {
-    [SerializeField] float force = 500;
+    [SerializeField] float force = 80;
 
     public void AddForceForHand(Vector3 handVelocity)
     {

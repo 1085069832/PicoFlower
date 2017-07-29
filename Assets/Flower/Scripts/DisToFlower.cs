@@ -6,7 +6,7 @@ public class DisToFlower : MonoBehaviour
 {
 
     [SerializeField] GameObject picoCamera;//摄像机
-    [SerializeField] GameObject flowerCenter;//花
+    [SerializeField] GameObject flowerCenter;
     Vector3 disOffset;//距离向量
     [SerializeField] float speed = 2f;//速度
     [SerializeField] float minDis = 0.3f;//最近距离
